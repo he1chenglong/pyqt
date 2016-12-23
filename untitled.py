@@ -20,6 +20,9 @@ class Ui_MainWindow(object):
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit.setGeometry(QtCore.QRect(90, 110, 251, 71))
         self.textEdit.setObjectName("textEdit")
+        self.myButton = QtWidgets.QPushButton(self.centralwidget)
+        self.myButton.setGeometry(QtCore.QRect(310, 230, 75, 23))
+        self.myButton.setObjectName("myButton")
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 23))
         self.menubar.setObjectName("menubar")
@@ -39,6 +42,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        self.myButton.setText(_translate("MainWindow", "myButton"))
         self.menu.setTitle(_translate("MainWindow", "文件"))
         self.menu_2.setTitle(_translate("MainWindow", "编辑"))
 

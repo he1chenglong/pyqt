@@ -20,10 +20,10 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
         self.pushButton.clicked.connect(self.myPrint)
         self._signal.connect(self.mySignal)
 
-        self.myButtons =QtWidgets.QPushButton(self)
-        self.myButtons.setObjectName("myButton")
-        self.myButtons.setText("Test")
-        self.myButtons.clicked.connect(self.msg)
+        #self.myButton =QtWidgets.QPushButton(self)
+        #self.myButton.setObjectName("myButton")
+        self.myButton.setText("Test")
+        self.myButton.clicked.connect(self.msg)
 
     def msg(self):
         reply = QMessageBox.information(self,"标题","消息",QMessageBox.Yes|QMessageBox.No)
