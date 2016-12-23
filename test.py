@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMessageBox,QInputDialog,QLineEdit
+from PyQt5.QtWidgets import QMessageBox,QInputDialog,QLineEdit,QFileDialog
 
 from untitled  import Ui_MainWindow
 import sys
@@ -24,7 +24,28 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
         #self.myButton.setObjectName("myButton")
         self.myButton.setText("Test")
         #self.myButton.clicked.connect(self.msg)
-        self.myButton.clicked.connect(self.input)
+        # self.myButton.clicked.connect(self.input)
+        self.myButton.clicked.connect(self.fileopen)
+
+    def fileopen(self):
+        directory1 = QFileDialog.getExistingDirectory(self,"选取文件夹","C:/")
+        print(directory1)
+        fileName1, filetype = QFileDialog.getOpenFileName(self,
+                                                          "选取文件",
+                                                          "C:/",
+                                                          "All Files (*);;Text Files (*.txt)")
+        print(fileName1,filetype)
+        files, ok1 = QFileDialog.getOpenFileNames(self,
+                                                  "多选取文件",
+                                                  "C:/",
+                                                  "All Files (*);;Text Files (*.txt)")
+        print(files,ok1)
+        fileName2, ok2 = QFileDialog.getSaveFileName(self,
+                                                     "保存文件",
+                                                     "C:/",
+                                                     "All Files (*);;Text Files (*.txt)")
+        print(files,ok1)
+
 
     def input(self):
         #doubleNum,ok1 = QInputDialog.getDouble(self, "标题","计数:", 37.56, -10000, 10000, 2)
