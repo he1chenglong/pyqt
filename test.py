@@ -6,6 +6,8 @@
 #
 # WARNING! All changes made in this file will be lost!
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+
 from untitled  import Ui_MainWindow
 import sys
 import time
@@ -17,6 +19,15 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
         self.setupUi(self)
         self.pushButton.clicked.connect(self.myPrint)
         self._signal.connect(self.mySignal)
+
+        self.myButtons =QtWidgets.QPushButton(self)
+        self.myButtons.setObjectName("myButton")
+        self.myButtons.setText("Test")
+        self.myButtons.clicked.connect(self.msg)
+
+    def msg(self):
+        reply = QMessageBox.information(self,"标题","消息",QMessageBox.Yes|QMessageBox.No)
+
 
     def myPrint(self):
         print("helloword")
