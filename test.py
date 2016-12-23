@@ -20,10 +20,14 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
 
     def myPrint(self):
         print("helloword")
+        self.textEdit.setText("")
+        self.textEdit.append("正在打印，请稍后")
+        self._signal.emit("结束了吗，快回答")
 
 
     def mySignal(self,string):
         print(string)
+        self.textEdit.append("打印结束")
 
 if __name__=="__main__":
     app=QtWidgets.QApplication(sys.argv)
