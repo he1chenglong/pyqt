@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox,QInputDialog,QLineEdit
 
 from untitled  import Ui_MainWindow
 import sys
@@ -23,7 +23,23 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
         #self.myButton =QtWidgets.QPushButton(self)
         #self.myButton.setObjectName("myButton")
         self.myButton.setText("Test")
-        self.myButton.clicked.connect(self.msg)
+        #self.myButton.clicked.connect(self.msg)
+        self.myButton.clicked.connect(self.input)
+
+    def input(self):
+        #doubleNum,ok1 = QInputDialog.getDouble(self, "标题","计数:", 37.56, -10000, 10000, 2)
+        #print("input "+doubleNum)
+        # self.val=doubleNum
+        # intNum,ok2 = QInputDialog.getInt(self, "标题","计数:", 37, -10000, 10000, 2)
+        # stringNum,ok3 = QInputDialog.getText(self, "标题","姓名:",QLineEdit.Normal, "王尼玛")
+        # print(stringNum)
+        items = ["Spring", "Summer", "Fall", "Winter"]
+        item, ok4 = QInputDialog.getItem(self, "标题","Season:", items, 1, True)
+        text, ok5 = QInputDialog.getMultiLineText(self, "标题", "Address:", "John Doe\nFreedom Street")
+        print(text)
+
+
+
 
     def msg(self):
         reply = QMessageBox.information(self,"标题","消息",QMessageBox.Yes|QMessageBox.No)
