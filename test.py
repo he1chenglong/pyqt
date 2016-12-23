@@ -6,7 +6,7 @@
 #
 # WARNING! All changes made in this file will be lost!
 from PyQt5 import QtCore, QtGui, QtWidgets
-from test1 import Ui_MainWindow
+from untitled  import Ui_MainWindow
 import sys
 import time
 
