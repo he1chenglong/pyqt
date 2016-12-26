@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox,QInputDialog,QLineEdit,QFileDialog
+from ChildrenForm import ChildrenForm
 
 from untitled  import Ui_MainWindow
 import sys
@@ -18,7 +19,11 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
         super(mywindow,self).__init__()
         self.setupUi(self)
 
+        self.child=ChildrenForm()
+
         self.fileOpen.triggered.connect(self.openMsg) #菜单的点击事件是triggered
+
+        self.actionTst.triggered.connect(self.childShow)#点击actionTst,子窗口就会显示在主窗口的MaingridLayout中
 
         self.pushButton.clicked.connect(self.myPrint)
         self._signal.connect(self.mySignal)
@@ -29,6 +34,12 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
         #self.myButton.clicked.connect(self.msg)
         # self.myButton.clicked.connect(self.input)
         self.myButton.clicked.connect(self.fileopen)  #菜单的点击事件是triggered
+
+    def childShow(self):
+        self.MaingridLayout.addWidget(self.child)
+        # self.child.show()
+        pass
+
 
     # 菜单操作的例子
     def openMsg(self):

@@ -50,6 +50,17 @@
      <string>myButton</string>
     </property>
    </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>280</y>
+      <width>261</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="MaingridLayout"/>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -64,6 +75,8 @@
     <property name="title">
      <string>文件</string>
     </property>
+    <addaction name="fileOpen"/>
+    <addaction name="actionTst"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -74,6 +87,16 @@
    <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="fileOpen">
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="actionTst">
+   <property name="text">
+    <string>actionTst</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
