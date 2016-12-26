@@ -17,7 +17,7 @@ class Bu1(QWidget):
             but = QPushButton(str(i))
             layout.addWidget(but)
             #信号和槽连接
-            # but.clicked.connect(self.cliked)
+            but.clicked.connect(self.cliked)
 
         #使用封装，lambda
         but = QPushButton('5')
@@ -32,7 +32,7 @@ class Bu1(QWidget):
         but.clicked.connect(partial(self.on_click, '6'))
 
         layout.addWidget(self.lbl)
-        #设置布局
+        #
         self.setLayout(layout)
 
     #传递额外参数
