@@ -17,6 +17,9 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
     def __init__(self):
         super(mywindow,self).__init__()
         self.setupUi(self)
+
+        self.fileOpen.triggered.connect(self.openMsg) #菜单的点击事件是triggered
+
         self.pushButton.clicked.connect(self.myPrint)
         self._signal.connect(self.mySignal)
 
@@ -25,8 +28,14 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
         self.myButton.setText("Test")
         #self.myButton.clicked.connect(self.msg)
         # self.myButton.clicked.connect(self.input)
-        self.myButton.clicked.connect(self.fileopen)
+        self.myButton.clicked.connect(self.fileopen)  #菜单的点击事件是triggered
 
+    # 菜单操作的例子
+    def openMsg(self):
+        file,ok=QFileDialog.getOpenFileName(self,"打开","C:/","All Files (*);;Text Files (*.txt)")
+        self.statusbar.showMessage(file)                   #在状态栏显示文件地址
+
+    # 文件打开 对话框的 例子
     def fileopen(self):
         directory1 = QFileDialog.getExistingDirectory(self,"选取文件夹","C:/")
         print(directory1)
@@ -46,7 +55,7 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
                                                      "All Files (*);;Text Files (*.txt)")
         print(files,ok1)
 
-
+    # 输入对话框的例子
     def input(self):
         #doubleNum,ok1 = QInputDialog.getDouble(self, "标题","计数:", 37.56, -10000, 10000, 2)
         #print("input "+doubleNum)
@@ -61,11 +70,11 @@ class mywindow(QtWidgets.QWidget,Ui_MainWindow):
 
 
 
-
+    # 弹出 对话框 示例
     def msg(self):
         reply = QMessageBox.information(self,"标题","消息",QMessageBox.Yes|QMessageBox.No)
 
-
+    # 信号 和 槽  自己发送信号 的例子
     def myPrint(self):
         print("helloword")
         self.textEdit.setText("")
